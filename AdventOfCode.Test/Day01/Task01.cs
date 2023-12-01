@@ -19,6 +19,7 @@ public class Task01
     [Test]
     public void CalibrationValueFromOneLineContainingTwoDigits(){
         Assert.AreEqual(43, new CalibrationLine("ab4cd3").Value());
+        Assert.AreEqual(34, new CalibrationLine("a3cd4").Value());
     }
 
     [Test]
