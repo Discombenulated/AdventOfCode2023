@@ -23,6 +23,12 @@ public class Task01
     }
 
     [Test]
+    public void CalibrationValueFromOneLineContainingOneDigits(){
+        Assert.AreEqual(44, new CalibrationLine("ab4cd").Value());
+        Assert.AreEqual(33, new CalibrationLine("abcd3").Value());
+    }
+
+    [Test]
     public void Test_MyData()
     {
         var input = new FileInput("Day01/MyInput.txt").ReadLines();
