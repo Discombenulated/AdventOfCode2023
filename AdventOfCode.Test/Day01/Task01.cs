@@ -29,6 +29,12 @@ public class Task01
     }
 
     [Test]
+    public void CalibrationFileCanSumAllLineValues(){
+        string[] lines = {"abc13de", "f5g9"};
+        Assert.AreEqual(72, new Calibration(lines).Sum());
+    }
+
+    [Test]
     public void Test_MyData()
     {
         var input = new FileInput("Day01/MyInput.txt").ReadLines();
