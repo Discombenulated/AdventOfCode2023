@@ -39,6 +39,6 @@ public class Task01
     public void Test_MyData()
     {
         var input = new FileInput("Day01/MyInput.txt").ReadLines();
-        
+        Assert.AreEqual(53334, new Calibration(input).Sum());
     }
 }
