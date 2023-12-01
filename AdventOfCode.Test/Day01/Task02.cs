@@ -16,9 +16,15 @@ public class Task02
     }
 
     [Test]
+    public void OverlappingTextIsStillTwoNumbers(){
+        Assert.AreEqual(82, new CalibrationTextLine("eightwo").Value());
+    }
+
+    [Test]
     public void Test_ExampleData()
     {
-        var input = new FileInput("Day01/ExampleInput.txt").ReadLines();
+        var input = new FileInput("Day01/Example2Input.txt").ReadLines();
+        Assert.AreEqual(281, new Calibration(input, Calibration.DigitsAndText).Sum());
     }
 
     [Test]

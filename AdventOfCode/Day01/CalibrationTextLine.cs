@@ -8,14 +8,15 @@ public class CalibrationTextLine : CalibrationLine
     }
 
     private static string NormaliseLine(string line){
-        return line.Replace("one", "1")
-                   .Replace("two", "2")
-                   .Replace("three", "3")
-                   .Replace("four", "4")
-                   .Replace("five", "5")
-                   .Replace("six", "6")
-                   .Replace("seven", "7")
-                   .Replace("eight", "8")
-                   .Replace("nine", "9");
+        string newline = line.Replace("one", "o1e")
+                   .Replace("two", "t2o")
+                   .Replace("three", "t3e")
+                   .Replace("four", "f4r")
+                   .Replace("five", "f5e")
+                   .Replace("six", "s6x")
+                   .Replace("seven", "s7n")
+                   .Replace("eight", "e8t")
+                   .Replace("nine", "n9e");
+        return newline;
     }
 }
