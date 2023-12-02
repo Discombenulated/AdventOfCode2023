@@ -30,6 +30,8 @@ public class Task01
         Assert.IsTrue(game.IsPossible(5, 4, 3));
         game = CubeGame.Parse("3 green, 4 blue, 5 red");
         Assert.IsFalse(game.IsPossible(5, 4, 3));
+        game = CubeGame.Parse("3 green, 4 blue, 5 red, 1 red, 1 blue, 1 green");
+        Assert.IsTrue(game.IsPossible(6, 4, 5));
     }
 
     [Test]
