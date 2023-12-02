@@ -23,17 +23,18 @@ public class Task02
     }
 
     [Test]
-    [Ignore("Template test")]
     public void Test_ExampleData()
     {
         var input = new FileInput("Day02/ExampleInput.txt").ReadLines();
         var gameList = CubeGameList.Parse(input);
+        Assert.AreEqual(2286, gameList.SumOfCubePowers());
     }
 
     [Test]
-    [Ignore("Template test")]
     public void Test_MyData()
     {
         var input = new FileInput("Day02/MyInput.txt").ReadLines();
+        var gameList = CubeGameList.Parse(input);
+        Assert.AreEqual(66016, gameList.SumOfCubePowers());
     }
 }
