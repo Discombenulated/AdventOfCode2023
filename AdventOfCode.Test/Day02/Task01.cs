@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using AdventOfCode.Day02;
 
 namespace AdventOfCode.Test.Day02;
 
@@ -7,6 +8,12 @@ public class Task01
     [SetUp]
     public void Setup()
     {
+    }
+
+    [Test]
+    public void SimpleGameIsPossible(){
+        var game = new CubeGame(2, 2, 2);
+        Assert.IsTrue(game.IsPossible(2, 2, 2));
     }
 
     [Test]
