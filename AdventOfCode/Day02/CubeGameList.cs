@@ -1,5 +1,3 @@
-using System.Numerics;
-
 namespace AdventOfCode.Day02;
 
 public class CubeGameList
@@ -8,6 +6,15 @@ public class CubeGameList
 
     public CubeGameList(params CubeGame[] games){
         this.games = games;
+    }
+
+    public static CubeGameList Parse(string[] input){
+        var games = new List<CubeGame>();
+        foreach(var line in input){
+            var gameAsString = line.Split(": ")[1];
+            games.Add(CubeGame.Parse(gameAsString));
+        }
+        return new CubeGameList(games.ToArray());
     }
 
     public int SumIdsOfPossibleGames(int minRed, int minGreen, int minBlue){

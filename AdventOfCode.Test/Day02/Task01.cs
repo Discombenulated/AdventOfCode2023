@@ -62,6 +62,8 @@ public class Task01
     public void Test_ExampleData()
     {
         var input = new FileInput("Day02/ExampleInput.txt").ReadLines();
+        var gameList = CubeGameList.Parse(input);
+        Assert.AreEqual(8, gameList.SumIdsOfPossibleGames(12, 13, 14));
     }
 
     [Test]
