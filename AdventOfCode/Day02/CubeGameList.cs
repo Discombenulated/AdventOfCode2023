@@ -17,10 +17,10 @@ public class CubeGameList
         return new CubeGameList(games.ToArray());
     }
 
-    public int SumIdsOfPossibleGames(int minRed, int minGreen, int minBlue){
+    public int SumIdsOfPossibleGames(CubeBag bag){
         int idSum = 0;
         for (int i = 0; i < games.Length; i++){
-            if (games[i].IsPossible(minRed, minGreen, minBlue)){
+            if (games[i].IsPossible(bag)){
                 idSum += (i+1);
             }
         }

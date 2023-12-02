@@ -12,58 +12,55 @@ public class Task01
 
     [Test]
     public void RoundIsPossible(){
+        var bag = new CubeBag(2, 2, 2);
         var round = new CubeGameRound(2, 2, 2);
-        Assert.IsTrue(round.IsPossible(2, 2, 2));
+        Assert.IsTrue(round.IsPossible(bag));
         round = new CubeGameRound(2, 3, 4);
-        Assert.IsTrue(round.IsPossible(2, 2, 2));
-    }
-
-    [Test]
-    public void SimpleRoundIsNotPossible(){
-        var round = new CubeGameRound(2, 2, 2);
-        Assert.IsFalse(round.IsPossible(3, 3, 3));
+        Assert.IsFalse(round.IsPossible(bag));
     }
 
     [Test]
     public void CanCreateRoundFromString(){
+        var bag = new CubeBag(5, 4, 4);
         var round = CubeGameRound.Parse("3 blue, 4 green, 5 red");
-        Assert.IsTrue(round.IsPossible(5, 4, 3));
-        round = CubeGameRound.Parse("3 green, 4 blue, 5 red");
-        Assert.IsFalse(round.IsPossible(5, 4, 3));
+        Assert.IsTrue(round.IsPossible(bag));
+        round = CubeGameRound.Parse("3 green, 4 blue, 6 red");
+        Assert.IsFalse(round.IsPossible(bag));
     }
 
     [Test]
     public void GameIsPossibleIfAllRoundsArePossible(){
         var round1 = new CubeGameRound(2, 2, 2);
         var game = new CubeGame(round1);
-        Assert.IsTrue(game.IsPossible(1,1,1));
-        Assert.IsFalse(game.IsPossible(1,1,3));
+        Assert.IsTrue(game.IsPossible(new CubeBag(2, 2, 2)));
+        Assert.IsFalse(game.IsPossible(new CubeBag(1, 1, 1)));
     }
 
     [Test]
     public void CanCreateGameFromString(){
         var game = CubeGame.Parse("3 blue, 4 green, 5 red; 4 blue, 16 green");
-        Assert.IsTrue(game.IsPossible(0, 4, 3));
-        Assert.IsFalse(game.IsPossible(5, 4, 3));
+        Assert.IsTrue(game.IsPossible(new CubeBag(5, 16, 4)));
+        Assert.IsFalse(game.IsPossible(new CubeBag(0, 0, 0)));
     }
 
     [Test]
     public void CanSumIdsOfPossibleGames(){
+        var bag = new CubeBag(3,4,16);
         var game = CubeGame.Parse("3 red, 4 green, 5 blue; 4 green, 16 blue");
         var gameList = new CubeGameList(game);
-        Assert.AreEqual(1, gameList.SumIdsOfPossibleGames(0,2,5));
+        Assert.AreEqual(1, gameList.SumIdsOfPossibleGames(bag));
 
         gameList = new CubeGameList(game, game);
-        Assert.AreEqual(3, gameList.SumIdsOfPossibleGames(0,2,5));
+        Assert.AreEqual(3, gameList.SumIdsOfPossibleGames(bag));
     }
 
     [Test]
-    [Ignore("Template test")]
     public void Test_ExampleData()
     {
         var input = new FileInput("Day02/ExampleInput.txt").ReadLines();
         var gameList = CubeGameList.Parse(input);
-        Assert.AreEqual(8, gameList.SumIdsOfPossibleGames(12, 13, 14));
+        var bag = new CubeBag(12, 13, 14);
+        Assert.AreEqual(8, gameList.SumIdsOfPossibleGames(bag));
     }
 
     [Test]

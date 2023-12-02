@@ -17,9 +17,9 @@ public class CubeGame
         return new CubeGame(rounds.ToArray());
     }
 
-    public bool IsPossible(int minRed, int minGreen, int minBlue){
+    public bool IsPossible(CubeBag bag){
         foreach (var round in rounds){
-            if (!round.IsPossible(minRed, minGreen, minBlue)){
+            if (!round.IsPossible(bag)){
                 return false;
             }
         }

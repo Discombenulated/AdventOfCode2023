@@ -36,9 +36,9 @@ public class CubeGameRound
         return new CubeGameRound(red, green, blue);
     }
 
-    public bool IsPossible(int minRed, int minGreen, int minBlue){
-        return this.numRed >= minRed &&
-            this.numGreen >= minGreen &&
-            this.numBlue >= minBlue;
+    public bool IsPossible(CubeBag bag){
+        return this.numRed <= bag.Red &&
+            this.numGreen <= bag.Green &&
+            this.numBlue <= bag.Blue;
     }
 }
