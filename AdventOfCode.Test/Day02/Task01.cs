@@ -19,17 +19,25 @@ public class Task01
     }
 
     [Test]
-    public void SimpleGameIsNotPossible(){
+    public void SimpleRoundIsNotPossible(){
         var round = new CubeGameRound(2, 2, 2);
         Assert.IsFalse(round.IsPossible(3, 3, 3));
     }
 
     [Test]
-    public void CanCreateGameFromString(){
+    public void CanCreateRoundFromString(){
         var round = CubeGameRound.Parse("3 blue, 4 green, 5 red");
         Assert.IsTrue(round.IsPossible(5, 4, 3));
         round = CubeGameRound.Parse("3 green, 4 blue, 5 red");
         Assert.IsFalse(round.IsPossible(5, 4, 3));
+    }
+
+    [Test]
+    public void GameIsPossibleIfAllRoundsArePossible(){
+        var round1 = new CubeGameRound(2, 2, 2);
+        var game = new CubeGame(round1);
+        Assert.IsTrue(game.IsPossible(1,1,1));
+        Assert.IsFalse(game.IsPossible(1,1,3));
     }
 
     [Test]
