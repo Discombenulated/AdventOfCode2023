@@ -41,6 +41,13 @@ public class Task01
     }
 
     [Test]
+    public void CanCreateGameFromString(){
+        var game = CubeGame.Parse("3 blue, 4 green, 5 red; 4 blue, 16 green");
+        Assert.IsTrue(game.IsPossible(0, 4, 3));
+        Assert.IsFalse(game.IsPossible(5, 4, 3));
+    }
+
+    [Test]
     [Ignore("Template test")]
     public void Test_ExampleData()
     {
