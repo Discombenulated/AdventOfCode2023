@@ -11,27 +11,25 @@ public class Task01
     }
 
     [Test]
-    public void SimpleGameIsPossible(){
-        var game = new CubeGame(2, 2, 2);
-        Assert.IsTrue(game.IsPossible(2, 2, 2));
-        game = new CubeGame(2, 3, 4);
-        Assert.IsTrue(game.IsPossible(2, 2, 2));
+    public void RoundIsPossible(){
+        var round = new CubeGameRound(2, 2, 2);
+        Assert.IsTrue(round.IsPossible(2, 2, 2));
+        round = new CubeGameRound(2, 3, 4);
+        Assert.IsTrue(round.IsPossible(2, 2, 2));
     }
 
     [Test]
     public void SimpleGameIsNotPossible(){
-        var game = new CubeGame(2, 2, 2);
-        Assert.IsFalse(game.IsPossible(3, 3, 3));
+        var round = new CubeGameRound(2, 2, 2);
+        Assert.IsFalse(round.IsPossible(3, 3, 3));
     }
 
     [Test]
     public void CanCreateGameFromString(){
-        var game = CubeGame.Parse("3 blue, 4 green, 5 red");
-        Assert.IsTrue(game.IsPossible(5, 4, 3));
-        game = CubeGame.Parse("3 green, 4 blue, 5 red");
-        Assert.IsFalse(game.IsPossible(5, 4, 3));
-        game = CubeGame.Parse("3 green, 4 blue, 5 red, 1 red, 1 blue, 1 green");
-        Assert.IsTrue(game.IsPossible(6, 4, 5));
+        var round = CubeGameRound.Parse("3 blue, 4 green, 5 red");
+        Assert.IsTrue(round.IsPossible(5, 4, 3));
+        round = CubeGameRound.Parse("3 green, 4 blue, 5 red");
+        Assert.IsFalse(round.IsPossible(5, 4, 3));
     }
 
     [Test]

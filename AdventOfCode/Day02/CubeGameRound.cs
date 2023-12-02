@@ -2,19 +2,19 @@ using System.Numerics;
 
 namespace AdventOfCode.Day02;
 
-public class CubeGame
+public class CubeGameRound
 {
     private readonly int numRed;
     private readonly int numGreen;
     private readonly int numBlue;
 
-    public CubeGame(int numRed, int numGreen, int numBlue){
+    public CubeGameRound(int numRed, int numGreen, int numBlue){
         this.numRed = numRed;
         this.numGreen = numGreen;
         this.numBlue = numBlue;
     }
 
-    public static CubeGame Parse(string input){
+    public static CubeGameRound Parse(string input){
         var components = input.Split(", ");
         int red = 0, green = 0, blue = 0;
         foreach (var component in components){
@@ -35,7 +35,7 @@ public class CubeGame
                     throw new Exception("Unknow color: " + color);
             }
         }
-        return new CubeGame(red, green, blue);
+        return new CubeGameRound(red, green, blue);
     }
 
     public bool IsPossible(int minRed, int minGreen, int minBlue){
