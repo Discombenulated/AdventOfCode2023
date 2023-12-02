@@ -41,4 +41,12 @@ public class CubeGameRound
             this.numGreen <= bag.Green &&
             this.numBlue <= bag.Blue;
     }
+
+    public CubeBag GetMinimumBag(CubeBag bag){
+        return new CubeBag(
+            Math.Max(bag.Red, this.numRed),
+            Math.Max(bag.Green, this.numGreen),
+            Math.Max(bag.Blue, this.numBlue)
+        );
+    }
 }

@@ -26,4 +26,12 @@ public class CubeGameList
         }
         return idSum;
     }
+
+    public int SumOfCubePowers(){
+        int sum = 0;
+        foreach (var game in games){
+            sum += game.PowerOfCubes();
+        }
+        return sum;
+    }
 }

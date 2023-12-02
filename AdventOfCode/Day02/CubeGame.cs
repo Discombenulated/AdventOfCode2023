@@ -25,4 +25,17 @@ public class CubeGame
         }
         return true;
     }
+
+    public CubeBag MinimumBag(){
+        CubeBag bag = new CubeBag(0,0,0);
+        foreach (var round in rounds){
+            bag = round.GetMinimumBag(bag);
+        }
+        return bag;
+    }
+
+    public int PowerOfCubes(){
+        var bag = MinimumBag();
+        return bag.Red * bag.Green * bag.Blue;
+    }
 }
