@@ -14,9 +14,33 @@ public class CubeGame
         this.numBlue = numBlue;
     }
 
-    public bool IsPossible(int maxRed, int maxGreen, int maxBlue){
-        return this.numRed >= maxRed &&
-            this.numGreen >= maxGreen &&
-            this.numBlue >= maxBlue;
+    public static CubeGame Parse(string input){
+        var components = input.Split(", ");
+        int red = 0, green = 0, blue = 0;
+        foreach (var component in components){
+            var colorAndNum = component.Split(" ");
+            var color = colorAndNum[1];
+            var num = int.Parse(colorAndNum[0]);
+            switch(color){
+                case "red":
+                    red += num;
+                    break;
+                case "blue":
+                    blue += num;
+                    break;
+                case "green":
+                    green += num;
+                    break;
+                default:
+                    throw new Exception("Unknow color: " + color);
+            }
+        }
+        return new CubeGame(red, green, blue);
+    }
+
+    public bool IsPossible(int minRed, int minGreen, int minBlue){
+        return this.numRed >= minRed &&
+            this.numGreen >= minGreen &&
+            this.numBlue >= minBlue;
     }
 }
