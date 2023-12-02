@@ -15,6 +15,8 @@ public class CubeGame
     }
 
     public bool IsPossible(int maxRed, int maxGreen, int maxBlue){
-        return true;
+        return this.numRed >= maxRed &&
+            this.numGreen >= maxGreen &&
+            this.numBlue >= maxBlue;
     }
 }

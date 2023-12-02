@@ -14,6 +14,14 @@ public class Task01
     public void SimpleGameIsPossible(){
         var game = new CubeGame(2, 2, 2);
         Assert.IsTrue(game.IsPossible(2, 2, 2));
+        game = new CubeGame(2, 3, 4);
+        Assert.IsTrue(game.IsPossible(2, 2, 2));
+    }
+
+    [Test]
+    public void SimpleGameIsNotPossible(){
+        var game = new CubeGame(2, 2, 2);
+        Assert.IsFalse(game.IsPossible(3, 3, 3));
     }
 
     [Test]
