@@ -48,6 +48,16 @@ public class Task01
     }
 
     [Test]
+    public void CanSumIdsOfPossibleGames(){
+        var game = CubeGame.Parse("3 red, 4 green, 5 blue; 4 green, 16 blue");
+        var gameList = new CubeGameList(game);
+        Assert.AreEqual(1, gameList.SumIdsOfPossibleGames(0,2,5));
+
+        gameList = new CubeGameList(game, game);
+        Assert.AreEqual(3, gameList.SumIdsOfPossibleGames(0,2,5));
+    }
+
+    [Test]
     [Ignore("Template test")]
     public void Test_ExampleData()
     {
