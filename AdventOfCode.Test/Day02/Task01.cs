@@ -64,9 +64,11 @@ public class Task01
     }
 
     [Test]
-    [Ignore("Template test")]
     public void Test_MyData()
     {
         var input = new FileInput("Day02/MyInput.txt").ReadLines();
+        var gameList = CubeGameList.Parse(input);
+        var bag = new CubeBag(12, 13, 14);
+        Assert.AreEqual(2541, gameList.SumIdsOfPossibleGames(bag));
     }
 }
