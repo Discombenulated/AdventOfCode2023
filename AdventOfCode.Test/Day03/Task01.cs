@@ -86,6 +86,6 @@ public class Task01
     {
         var input = new FileInput("Day03/MyInput.txt").ReadLines();
         var schematic = new EngineSchematic(input);
-        Assert.AreEqual(0,schematic.SumOfPartNumbers());
+        Assert.AreEqual(525911,schematic.SumOfPartNumbers());
     }
 }
